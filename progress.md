@@ -33,3 +33,4 @@ slug: bistro-bloom          engine: three-160       updated: 2026-11-13
 - Added visible guest thought bubbles, a plated meal at the pass, a carry tray, food on served tables, and a bill badge when payment is ready.
 - Updated the order loop: accept at table, wait 4 seconds for cooking, pick up at the pass, serve at the same table, wait for eating, collect payment, then clean the table.
 - Verification in progress: JavaScript syntax passes; playthrough on the published page pending deployment.
+- Added recurring guest arrivals with an active-guest cap so the $240 / four-order goal is achievable; clarified prompts for already-carried and ready-but-not-picked-up meals.
