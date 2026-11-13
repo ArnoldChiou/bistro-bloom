@@ -9,7 +9,7 @@ scene.add(new THREE.HemisphereLight(0xfff5dd,0x83ad91,2));const sun=new THREE.Di
 const mats={floor:0xe8d6b6,wall:0xf7ecd5,wood:0xa96f4c,top:0xffd9a3,mint:0x65bda0,red:0xed8069,cream:0xfff7e8,green:0x68a980,blue:0x73a8cd,pink:0xd988a6,yellow:0xe8ba57,dark:0x436653};function mat(c,rough=.8){return new THREE.MeshStandardMaterial({color:c,roughness:rough})}const M={};for(const k in mats)M[k]=mat(mats[k]);
 function box(parent,x,y,z,w,h,d,m,r=0){let o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),typeof m==='string'?M[m]:m);o.position.set(x,y,z);o.rotation.y=r;o.castShadow=true;o.receiveShadow=true;parent.add(o);return o}function cyl(parent,x,y,z,rt,rb,h,m){let o=new THREE.Mesh(new THREE.CylinderGeometry(rt,rb,h,20),typeof m==='string'?M[m]:m);o.position.set(x,y,z);o.castShadow=true;parent.add(o);return o}
 // Room shell and tiled floor
-box(scene,0,-.22,0,18,.4,14,'floor');box(scene,0,2,-7,18,4,.25,'wall');box(scene,-9,2,0,.25,4,14,'wall');box(scene,9,2,0,.25,4,14,'wall');box(scene,0,4.1,-1,18,.18,12,'cream');
+box(scene,0,-.22,0,18,.4,14,'floor');box(scene,0,2,-7,18,4,.25,'wall');box(scene,-9,2,0,.25,4,14,'wall');box(scene,9,2,0,.25,4,14,'wall');// Open-air roof removed so the overhead camera can see the dining room.
 // decorative floor tile grid
 for(let x=-8;x<=8;x+=2)for(let z=-6;z<=6;z+=2)box(scene,x,-.005,z,1.93,.012,1.93,((x+z)%4===0?'cream':'floor'));
 // counter and kitchen at back
@@ -41,4 +41,5 @@ let clock=0;function tick(dt){if(state.active){state.seconds=Math.max(0,state.se
 window.render_game_to_text=()=>JSON.stringify({cash:state.cash,seconds:state.seconds,served:state.served,lost:state.lost,queue:state.queue.length,order:state.order?.phase||null,player:[player.position.x,player.position.z]});window.advanceTime=ms=>{let n=Math.ceil(ms/16);for(let i=0;i<n;i++)tick(Math.min(.016,ms/1000/n))};
 const clocker=new THREE.Clock();function frame(){requestAnimationFrame(frame);let dt=Math.min(.05,clocker.getDelta());clock+=dt;tick(dt);camera.position.x=THREE.MathUtils.lerp(camera.position.x,player.position.x*.3,.035);camera.position.z=THREE.MathUtils.lerp(camera.position.z,19+player.position.z*.12,.035);camera.lookAt(player.position.x*.2,0,0);renderer.render(scene,camera)}frame();addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)});
 </script></body></html>
+
 
