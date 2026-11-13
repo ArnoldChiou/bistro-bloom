@@ -34,3 +34,8 @@ slug: bistro-bloom          engine: three-160       updated: 2026-11-13
 - Updated the order loop: accept at table, wait 4 seconds for cooking, pick up at the pass, serve at the same table, wait for eating, collect payment, then clean the table.
 - Verification in progress: JavaScript syntax passes; playthrough on the published page pending deployment.
 - Added recurring guest arrivals with an active-guest cap so the $240 / four-order goal is achievable; clarified prompts for already-carried and ready-but-not-picked-up meals.
+
+## Latest Playthrough Verification
+- Result: PASS in the published Chromium browser. Completed a real input-driven round segment: seat guest -> accept order -> wait for cooking -> see ready meal and pickup instructions -> pick up -> serve -> wait -> see $60 payment prompt -> collect $60 -> clean table.
+- Confirmed 1 completed order, $60 revenue, and the next-customer guidance after cleanup. Browser console errors: 0.
+- Screenshot: `.verify/gameplay.jpg`.
