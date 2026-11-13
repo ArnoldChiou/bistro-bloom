@@ -26,3 +26,10 @@ slug: bistro-bloom          engine: three-160       updated: 2026-11-13
 ## Suggested Next Steps
 - 擴充菜單、升級項目與多日關卡。
 
+
+## Visual clarity update (2026-11-13)
+- Removed the opaque ceiling so the angled camera can see the dining room.
+- Added an on-screen next-action card with cooking progress and explicit pickup, serving, payment, and cleanup guidance.
+- Added visible guest thought bubbles, a plated meal at the pass, a carry tray, food on served tables, and a bill badge when payment is ready.
+- Updated the order loop: accept at table, wait 4 seconds for cooking, pick up at the pass, serve at the same table, wait for eating, collect payment, then clean the table.
+- Verification in progress: JavaScript syntax passes; playthrough on the published page pending deployment.
